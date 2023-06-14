@@ -1,1 +1,22 @@
-<p>todo works!</p>
+<ul *ngIf="todoService.todos.length; else noTodos">
+  <li *ngFor="let todo of todoService.todos; let i= index">
+    <span [class.done]="todo.completed">
+      <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
+      <strong>{{i + 1}}</strong>
+      {{ todo.title }}
+    </span>
+
+    <small>{{todo.date | date:'medium'}}</small>
+
+    <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
+  </li>
+</ul>
+
+<div>
+  <input type="text" placeholder="Добавить запись" [(ngModel)]="title">
+  <button (click)="addTodo()">Добавить</button>
+</div>
+
+<ng-template #noTodos>
+  <p style="text-align: center;">Сейчас нет задач!</p>
+</ng-template>
