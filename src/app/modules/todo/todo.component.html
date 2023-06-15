@@ -1,5 +1,13 @@
+<div class="filter">
+  <input
+    type="text"
+    placeholder="фильтрация по title..."
+    [(ngModel)]="searchString"
+  >
+</div>
+
 <ul *ngIf="todoService.todos.length; else noTodos">
-  <li *ngFor="let todo of todoService.todos; let i= index">
+  <li *ngFor="let todo of todoService.todos | todoFilter:searchString; let i= index">
     <span [class.done]="todo.completed">
       <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
       <strong>{{i + 1}}</strong>
@@ -13,7 +21,12 @@
 </ul>
 
 <div>
-  <input type="text" placeholder="Добавить запись" [(ngModel)]="title">
+  <input
+    type="text"
+    placeholder="Добавить запись"
+    [(ngModel)]="title"
+    (keydown.enter)="addTodo()"
+  >
   <button (click)="addTodo()">Добавить</button>
 </div>
 

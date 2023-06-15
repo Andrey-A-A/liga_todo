@@ -5,9 +5,11 @@ import { Todo } from '../../services/todo.service';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit{
+
+  public searchString: string = ''
 
   title: string = ''
 
@@ -34,5 +36,6 @@ export class TodoComponent implements OnInit{
     }
 
     this.todoService.addTodo(todo)
+    this.title = ''
   }
 }
