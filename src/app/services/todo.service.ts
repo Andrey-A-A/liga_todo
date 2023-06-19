@@ -4,7 +4,7 @@ export interface Todo {
   id: number
   title: string
   completed: boolean
-  date?: any
+  date?: Date
 }
 
 @Injectable({providedIn: 'root'})

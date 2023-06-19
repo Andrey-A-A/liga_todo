@@ -16,6 +16,6 @@ import { TodosFilterPipe} from '../../services/todo-filter.pipe'
   ],
   exports: [
     TodoComponent
-  ]
+  ],
 })
 export class TodoModule { }
