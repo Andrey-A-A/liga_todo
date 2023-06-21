@@ -1,0 +1,5 @@
+[
+  {"id": 1, "title": "изучить Angular", "completed": false, "date": "17.05.2023"},
+  {"id": 2, "title": "изучить React", "completed": true, "date": "17.05.2023"},
+  {"id": 3, "title": "изучить Redux", "completed": false, "date": "17.05.2023"}
+]

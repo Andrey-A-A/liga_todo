@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo.component';
-import {  } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { TodosComponent } from './todos.component';
+import { TodoComponent } from '../todo/todo.component';
 import { TodosFilterPipe} from '../../services/todo-filter.pipe'
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
+    TodosComponent,
     TodoComponent,
     TodosFilterPipe
   ],
@@ -15,7 +17,7 @@ import { TodosFilterPipe} from '../../services/todo-filter.pipe'
     FormsModule
   ],
   exports: [
-    TodoComponent
-  ],
+    TodosComponent,
+  ]
 })
-export class TodoModule { }
+export class TodosModule { }

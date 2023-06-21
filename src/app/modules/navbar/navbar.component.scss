@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  background: #009579 ;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    h1 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+  &__nav {
+    display: block;
+    a {
+      color:#fff;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-left: .5rem;
+      &:hover {
+
+        color:beige ;
+      }
+    }
+
+  }
+}

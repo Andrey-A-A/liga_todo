@@ -1,0 +1,28 @@
+<div class="filter">
+  <input
+    type="text"
+    placeholder="фильтрация по title..."
+    [(ngModel)]="searchString"
+  >
+</div>
+
+<ul *ngIf="todoService.getList().length; else noTodos">
+  <li *ngFor="let todo of todoService.getList() | todoFilter:searchString; let i= index">
+    <app-todo [todo]="todo" [index]="i"></app-todo>
+  </li>
+</ul>
+
+<div class="add">
+  <input
+    type="text"
+    placeholder="Добавить запись"
+    [(ngModel)]="title"
+    (keydown.enter)="addTodo()"
+  >
+  <button (click)="addTodo()">Добавить</button>
+</div>
+
+<ng-template #noTodos>
+  <p style="text-align: center;">Сейчас нет задач!</p>
+</ng-template>
+

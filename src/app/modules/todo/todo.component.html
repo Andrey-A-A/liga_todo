@@ -1,35 +1,13 @@
-<div class="filter">
-  <input
-    type="text"
-    placeholder="фильтрация по title..."
-    [(ngModel)]="searchString"
-  >
-</div>
-
-<ul *ngIf="todoService.todos.length; else noTodos">
-  <li *ngFor="let todo of todoService.todos | todoFilter:searchString; let i= index">
-    <span [class.done]="todo.completed">
-      <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
-      <strong>{{i + 1}}</strong>
-      {{ todo.title }}
-    </span>
-
-    <small>{{todo.date | date:'medium'}}</small>
-
-    <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
-  </li>
-</ul>
 
 <div>
-  <input
-    type="text"
-    placeholder="Добавить запись"
-    [(ngModel)]="title"
-    (keydown.enter)="addTodo()"
-  >
-  <button (click)="addTodo()">Добавить</button>
-</div>
+  <span [class.done]="todo.completed">
+    <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
+    <strong>{{index + 1}}</strong>
+    {{ todo.title }}
+  </span>
 
-<ng-template #noTodos>
-  <p style="text-align: center;">Сейчас нет задач!</p>
-</ng-template>
+  <small>{{todo.date}}</small>
+  <!-- <small>{{todo.date | date:'medium'}}</small> -->
+
+  <button class="rm" (click)="removeTodo(todo.id)">&times;</button>
+</div>
