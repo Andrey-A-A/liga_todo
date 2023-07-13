@@ -4,6 +4,7 @@ import { TodosComponent } from './todos.component';
 import { TodoComponent } from '../todo/todo.component';
 import { TodosFilterPipe} from '../../services/todo-filter.pipe'
 import { FormsModule } from '@angular/forms';
+import { SpinnerModule } from 'src/app/shared/spinner/spinner.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SpinnerModule
   ],
   exports: [
     TodosComponent,

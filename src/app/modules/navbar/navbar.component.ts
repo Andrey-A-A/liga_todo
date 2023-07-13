@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   appTitle = 'todo Angular'
+
+  constructor(private authService: AuthService) {
+
+  }
+
+  public isAuthorised() {
+    if (this.authService.getToken()) {
+      return true
+    } else return false
+  }
+
+  public LogOut() {
+    this.authService.logout()
+  }
 }

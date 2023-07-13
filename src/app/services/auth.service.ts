@@ -11,24 +11,24 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string) {
+  login(email: string | null, password: string | null) {
     console.log('email=', email, ' / ','password=', password);
 
     return this.http
     .post<{ token: string }>(`${this.baseUrl}/login`, { email, password })
     .subscribe((res: any) => {
-      localStorage.setItem('del_meetups_auth_token', res.token);
+      localStorage.setItem('del_auth_token', res.token);
       this.router.navigate(['todos']);
     })
   }
 
   logout() {
-    localStorage.removeItem('del_meetups_auth_token');
+    localStorage.removeItem('del_auth_token');
     this.router.navigate(['login']);
   }
 
   isAuth() {
-    if (localStorage.getItem('del_meetups_auth_token')) {
+    if (localStorage.getItem('del_auth_token')) {
       return true;
     } else {
       return false;
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem('del_meetups_auth_token')
+    return localStorage.getItem('del_auth_token')
   }
 
 
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   public get user(): User | null {
-    const token = localStorage.getItem('del_meetups_auth_token');
+    const token = localStorage.getItem('del_auth_token');
     if (token) {
       const user: User = this.parseJwt(token);
       return user;
@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   public get token(): string | null {
-    return localStorage.getItem('del_meetups_auth_token');
+    return localStorage.getItem('del_auth_token');
   }
 
 }

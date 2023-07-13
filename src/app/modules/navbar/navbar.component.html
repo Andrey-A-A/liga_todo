@@ -4,7 +4,8 @@
       <nav class="header__nav">
         <a routerLink="about">Описание</a>
         <a routerLink="todos">Список дел</a>
-        <a routerLink="login">Вход</a>
+        <a *ngIf="!isAuthorised()" routerLink="login">Вход</a>
+        <a *ngIf="isAuthorised()" (click)="LogOut()">Выход</a>
       </nav>
     </div>
   </header>

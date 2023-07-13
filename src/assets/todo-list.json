@@ -1,5 +1,8 @@
 [
-  {"id": 1, "title": "изучить Angular", "completed": false, "date": "17.05.2023"},
-  {"id": 2, "title": "изучить React", "completed": true, "date": "17.05.2023"},
-  {"id": 3, "title": "изучить Redux", "completed": false, "date": "17.05.2023"}
+  {"id": 1, "title": "изучить Angular", "completed": false, "date": "17.08.2023"},
+  {"id": 2, "title": "изучить React", "completed": true, "date": "17.08.2023"},
+  {"id": 3, "title": "изучить Vue", "completed": false, "date": "17.08.2023"},
+  {"id": 4, "title": "изучить Redux", "completed": false, "date": "17.05.2023"},
+  {"id": 5, "title": "изучить Redux Toolkit", "completed": false, "date": "17.08.2023"},
+  {"id": 6, "title": "изучить библиотеку RxJS", "completed": false, "date": "17.08.2023"}
 ]

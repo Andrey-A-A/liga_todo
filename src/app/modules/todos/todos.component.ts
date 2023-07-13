@@ -1,25 +1,25 @@
-import { Component, ChangeDetectionStrategy, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Todosservice } from '../../services/todo.service';
 import { Todo } from "../../interfaces/todo.interface";
-import { Observable } from 'rxjs';
+import { SpinnerComponent } from 'src/app/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class TodosComponent implements OnInit, OnChanges {
+export class TodosComponent implements OnInit {
 
   public searchString: string = ''
 
-  todos: Todo[] = []
+  public todos: Todo[] = []
 
   title: string = ''
 
-  constructor(public todoService: Todosservice) {
+  public isLoading: boolean = true
 
-  }
+  constructor(public todoService: Todosservice) {}
 
   sleep(ms = 1000) {
     const date = Date.now();
@@ -29,12 +29,12 @@ export class TodosComponent implements OnInit, OnChanges {
   } while (currentDate - date < ms);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    setTimeout(() => {  console.log("World!"); }, 2000);
-  }
+  ngOnInit() {
 
-  ngOnInit(): void {
-
+    this.todos = this.todoService.getList()
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   }
 
   addTodo() {

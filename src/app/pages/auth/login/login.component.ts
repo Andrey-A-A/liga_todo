@@ -16,14 +16,7 @@ export class LoginComponent implements OnInit {
   Login() {
     console.log("вы входите в систему")
     this.authService.login(this.email, this.password)
-
-  }
-
-  Logout() {
-    console.log("вы выходите из системы")
-    this.authService.logout()
   }
 
   ngOnInit() { }
 }
-

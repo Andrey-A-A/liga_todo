@@ -5,12 +5,17 @@
     [(ngModel)]="searchString"
   >
 </div>
+<!-- <div *ngIf="isLoading">Загрузка ...</div> -->
+<app-spinner *ngIf="isLoading"></app-spinner>
 
-<ul *ngIf="todoService.getList().length; else noTodos">
-  <li *ngFor="let todo of todoService.getList() | todoFilter:searchString; let i= index">
-    <app-todo [todo]="todo" [index]="i"></app-todo>
-  </li>
-</ul>
+<div *ngIf="!isLoading">
+  <ul *ngIf="todos.length; else noTodos">
+    <li *ngFor="let todo of todos | todoFilter:searchString; let i= index">
+      <app-todo [todo]="todo" [index]="i"></app-todo>
+    </li>
+  </ul>
+</div>
+
 
 <div class="add">
   <input

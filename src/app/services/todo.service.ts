@@ -1,18 +1,16 @@
 import { Injectable } from "@angular/core";
-import { Todo, Todos } from "../interfaces/todo.interface";
+import { Todo } from "../interfaces/todo.interface";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
+const PASSWORD = ['qwertY12']
 @Injectable({providedIn: 'root'})
 export class Todosservice {
 
   title: string = ''
 
-  private todos: Todo[] = [
-    {id: 1, title: 'изучить Angular', completed: false, date: "17.05.2023"},
-    {id: 2, title: 'изучить React', completed: true, date: "17.05.2023"},
-    {id: 3, title: 'изучить Redux', completed: false, date: "17.05.2023"},
-  ]
+  private todos: Todo[] = []
 
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(data => {
@@ -25,10 +23,16 @@ export class Todosservice {
     });
   }
 
-  public getJSON(): Observable<any> {
-    return this.http.get("./assets/todo-list.json");
+  public getJSON(): Observable<Todo[]> {
+    let obj = this.http.get<Todo[]>("assets/todo-list.json");
+      return obj;
   }
 
+  isExistsPassword(pass: string): Observable<boolean> {
+    const isTaken = PASSWORD.includes(pass);
+
+    return of(isTaken).pipe(delay(2000));
+  }
 
   getList() {
     return this.todos
