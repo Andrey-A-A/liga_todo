@@ -1,11 +1,11 @@
 {
   "name": "todo",
   "version": "0.0.0",
-  "homepage": "https://andrey-a-a.github.io/liga_todo",
+  "homepage": "https://andrey-a-a.github.io/liga_todo/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /liga-meetups/",
+    "build": "ng build --base-href /liga_todo/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "watch": "ng build --watch --configuration development",

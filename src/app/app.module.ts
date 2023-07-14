@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptors';
 import { NavbarComponent } from '../app/modules/navbar/navbar.component';
+import { StartComponent } from './pages/start/start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    StartComponent,
   ],
   imports: [
     BrowserModule,

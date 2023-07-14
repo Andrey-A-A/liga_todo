@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Todosservice } from '../../services/todo.service';
 import { Todo } from "../../interfaces/todo.interface";
-import { SpinnerComponent } from 'src/app/shared/spinner/spinner.component';
 
 @Component({
   selector: 'app-todos',

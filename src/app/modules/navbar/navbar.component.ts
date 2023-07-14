@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  appTitle = 'todo Angular'
+  appTitle = 'Todo Angular'
 
   constructor(private authService: AuthService) {
 
